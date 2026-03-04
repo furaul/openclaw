@@ -1,6 +1,7 @@
 import { normalizeGoogleModelId } from "../../../agents/models-config.providers.js";
 import { parseGeminiAuth } from "../../../infra/gemini-auth.js";
 import { assertOkOrThrowHttpError, normalizeBaseUrl, postJsonRequest } from "../shared.js";
+import { buildGeminiUrl } from "../../../utils/gemini-url.js";
 
 export async function generateGeminiInlineDataText(params: {
   buffer: Buffer;
@@ -29,7 +30,11 @@ export async function generateGeminiInlineDataText(params: {
     }
     return normalizeGoogleModelId(trimmed);
   })();
-  const url = `${baseUrl}/models/${model}:generateContent`;
+  const url = buildGeminiUrl({
+    baseUrl: params.baseUrl,
+    modelId: model,
+    endpoint: ":generateContent",
+  });
 
   const authHeaders = parseGeminiAuth(params.apiKey);
   const headers = new Headers(params.headers);
