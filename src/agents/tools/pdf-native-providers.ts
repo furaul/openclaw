@@ -4,8 +4,8 @@
  */
 
 import { isRecord } from "../../utils.js";
-import { normalizeSecretInput } from "../../utils/normalize-secret-input.js";
 import { buildGeminiUrl } from "../../utils/gemini-url.js";
+import { normalizeSecretInput } from "../../utils/normalize-secret-input.js";
 
 type PdfInput = {
   base64: string;

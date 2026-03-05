@@ -27,7 +27,9 @@ describe("buildGeminiUrl", () => {
       endpoint: ":generateContent",
       apiKey: "test-key",
     });
-    expect(url).toBe("https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro:generateContent?key=test-key");
+    expect(url).toBe(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro:generateContent?key=test-key",
+    );
   });
 
   it("should handle baseUrl with trailing slash", () => {
@@ -72,7 +74,9 @@ describe("buildGeminiUrl", () => {
       modelId: "text-embedding-004",
       endpoint: ":embedContent",
     });
-    expect(url).toBe("https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent");
+    expect(url).toBe(
+      "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent",
+    );
   });
 
   it("should work with batchEmbedContents endpoint", () => {
@@ -80,7 +84,9 @@ describe("buildGeminiUrl", () => {
       modelId: "text-embedding-004",
       endpoint: ":batchEmbedContents",
     });
-    expect(url).toBe("https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents");
+    expect(url).toBe(
+      "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents",
+    );
   });
 
   it("should work with modelHasPrefix=true", () => {
@@ -89,7 +95,9 @@ describe("buildGeminiUrl", () => {
       endpoint: ":embedContent",
       modelHasPrefix: true,
     });
-    expect(url).toBe("https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent");
+    expect(url).toBe(
+      "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent",
+    );
   });
 
   it("should not duplicate models/ prefix when modelHasPrefix=true", () => {
@@ -98,7 +106,9 @@ describe("buildGeminiUrl", () => {
       endpoint: ":generateContent",
       modelHasPrefix: true,
     });
-    expect(url).toBe("https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro:generateContent");
+    expect(url).toBe(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro:generateContent",
+    );
     expect(url).not.toContain("models/models/");
   });
 });

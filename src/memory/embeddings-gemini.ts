@@ -5,10 +5,10 @@ import {
 import { requireApiKey, resolveApiKeyForProvider } from "../agents/model-auth.js";
 import { parseGeminiAuth } from "../infra/gemini-auth.js";
 import type { SsrFPolicy } from "../infra/net/ssrf.js";
+import { buildGeminiUrl } from "../utils/gemini-url.js";
 import { debugEmbeddingsLog } from "./embeddings-debug.js";
 import type { EmbeddingProvider, EmbeddingProviderOptions } from "./embeddings.js";
 import { buildRemoteBaseUrlPolicy, withRemoteHttpResponse } from "./remote-http.js";
-import { buildGeminiUrl } from "../utils/gemini-url.js";
 
 export type GeminiEmbeddingClient = {
   baseUrl: string;
