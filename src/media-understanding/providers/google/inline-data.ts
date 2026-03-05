@@ -31,7 +31,7 @@ export async function generateGeminiInlineDataText(params: {
     return normalizeGoogleModelId(trimmed);
   })();
   const url = buildGeminiUrl({
-    baseUrl: params.baseUrl,
+    baseUrl: baseUrl,
     modelId: model,
     endpoint: ":generateContent",
   });
